@@ -1,0 +1,17 @@
+version: '3.1'
+services:
+  mysql_lates:
+    image: mysql:latest
+    restart: always
+    hostname: mysql_latest
+    ports:
+      - 3306:3306
+    container_name: mysql_latest
+    environment:
+      MYSQL_ROOT_PASSWORD: maverick
+
+#    volumes:
+#      - /etc/localtime:/etc/localtime:ro
+#      - /etc/timezone:/etc/timezone:ro
+#      - ./var/opt/mssql:/var/opt/mssql/
+    
