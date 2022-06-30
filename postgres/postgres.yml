@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - /private/var/lib/postgresql:/var/lib/postgesql  
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=maverick  
+      - PGDATA=/var/lib/postgresql/data/pgdata  
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/timezone:/etc/timezone:ro"
+      - "./var/:/var/lib/postgresql/data/pgdata"  
+      - "./entrypoint/:/docker-entrypoint-initdb.d"
+    container_name: pgdb
+
+
